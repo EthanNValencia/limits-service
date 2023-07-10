@@ -1,6 +1,13 @@
-package com.nephew.microservices.limitsservice.bean;
+package com.nephew.microservices.limitsservice.configuration;
 
-public class Limits {
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+// This component has the configuration properties mapped from application.properties. 
+@Component
+@ConfigurationProperties("limits-service")
+public class Configuration {
+
 	private String profile;
 	private Integer minimum;
 	private Integer maximum;
@@ -28,23 +35,6 @@ public class Limits {
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-
-	public Limits(String profile, Integer minimum, Integer maximum) {
-		super();
-		this.profile = profile;
-		this.minimum = minimum;
-		this.maximum = maximum;
-	}
-
-	public Limits() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "Limits [profile=" + profile + ", minimum=" + minimum + ", maximum=" + maximum + "]";
-	}
-
 	
 
 }
